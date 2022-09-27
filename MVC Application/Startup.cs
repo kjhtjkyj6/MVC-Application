@@ -1,4 +1,4 @@
-using MvcMovie.Data;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -14,7 +14,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-
+using MVC_Application.Data;
 namespace MVC_Application
 {
     public class Startup
@@ -35,6 +35,9 @@ namespace MVC_Application
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+            services.AddDbContext<MVC_ApplicationContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MVC_ApplicationContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

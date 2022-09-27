@@ -7,13 +7,13 @@ using MVC_Application.Models;
 
 namespace MVC_Application.Data
 {
-    public class MvcMovieContext:DbContext
+    public class MVC_ApplicationContext : DbContext
     {
-        public MvcMovieContext(DbContextOptions<MvcMovieContext> options)
+        public MVC_ApplicationContext (DbContextOptions<MVC_ApplicationContext> options)
             : base(options)
         {
         }
 
-        public DbSet<Movie> Movie { get; set; }
+        public DbSet<MVC_Application.Models.Movie> Movie { get; set; }
     }
 }
